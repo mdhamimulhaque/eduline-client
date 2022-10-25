@@ -42,7 +42,7 @@ const Header = () => {
 
             <nav>
                 <ul
-                    className={`lg:flex font-semibold absolute top-12 transition-all duration-500 right-0 lg:static w-full text-center z-[-1] bg-emerald-300 
+                    className={`lg:flex font-semibold absolute top-12 transition-all duration-500 right-0 lg:static w-full text-center z-10 bg-emerald-300 
                  ${open ? "top-12" : "top-[-500px]"}`}>
                     {
                         navbarData?.map(navItem =>
