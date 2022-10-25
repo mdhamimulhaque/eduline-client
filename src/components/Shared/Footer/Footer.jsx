@@ -14,12 +14,12 @@ const Footer = () => {
 
     return (
         <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
-            <div className="grid grid-flow-col gap-4">
+            <div className="flex flex-wrap justify-center">
                 {
                     navbarData?.map(navItem =>
                         <li
                             key={navItem?.id}
-                            className='mr-4 no-underline list-none font-semibold text-blue-400 hover:text-blue-700 transition-all duration-500 text-lg px-4 py-2 my-3'>
+                            className='mr-4 no-underline list-none font-semibold text-blue-400 hover:text-blue-700 transition-all duration-500 text-lg px-4 py-2 my-3 '>
                             <Link to={navItem?.path}>{navItem?.name}</Link>
                         </li>
                     )
