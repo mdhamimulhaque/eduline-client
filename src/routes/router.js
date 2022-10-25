@@ -5,7 +5,6 @@ import Courses from "../components/Courses/Courses";
 import Error from "../components/Error/Error";
 import Faq from "../components/Faq/Faq";
 import Blog from "../components/Blog/Blog";
-import Contact from "../components/Contact/Contact";
 import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
 
@@ -21,6 +20,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/courses",
+                loader: () => fetch('http://localhost:5000/courses'),
                 element: <Courses />
             },
             {
@@ -30,10 +30,6 @@ export const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog />
-            },
-            {
-                path: "/contact",
-                element: <Contact />
             },
             {
                 path: "/login",
