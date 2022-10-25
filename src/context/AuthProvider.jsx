@@ -12,14 +12,20 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState('');
 
-    // ---> google log in
+    // ---> google login
     const googleLogIn = (provider) => {
+        return signInWithPopup(auth, provider)
+    }
+
+    // ---> github login
+    const githubLogIn = (provider) => {
         return signInWithPopup(auth, provider)
     }
 
     const authInfo = {
         user,
-        googleLogIn
+        googleLogIn,
+        githubLogIn
     }
 
     return (
