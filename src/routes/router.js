@@ -6,6 +6,8 @@ import Error from "../components/Error/Error";
 import Faq from "../components/Faq/Faq";
 import Blog from "../components/Blog/Blog";
 import Contact from "../components/Contact/Contact";
+import Login from "../components/Login/Login";
+import Registration from "../components/Registration/Registration";
 
 export const router = createBrowserRouter([
     {
@@ -32,6 +34,14 @@ export const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/login",
+                element: <Login />
+            },
+            {
+                path: "/registration",
+                element: <Registration />
             },
         ]
     }
