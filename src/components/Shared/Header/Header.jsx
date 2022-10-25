@@ -4,8 +4,12 @@ import { MdFormatListBulleted, MdClear, MdLightMode, MdModeNight } from "react-i
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Tippy from '@tippyjs/react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../context/AuthProvider';
 
 const Header = () => {
+
+    const { user } = useContext(AuthContext)
 
     const [navbarData, setNavbarData] = useState([])
     const [isDarkMood, setDarkMood] = useState(false);
@@ -56,27 +60,34 @@ const Header = () => {
 
                     <div className="user_area ">
                         <div className="user_wrapper lg:flex lg:items-center lg:justify-center lg:gap-4 ">
+                            {user ?
+                                <button
+                                    className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-red-400 hover:bg-red-700 focus:shadow-outline focus:outline-none"
+                                    aria-label="Sign up"
+                                    title="Sign up"
+                                >Log Out</button> :
+                                <div className="button_area  block lg:inline-block">
+                                    <Link to="/login">
+                                        <button
+                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                                            aria-label="Sign up"
+                                            title="Sign up"
+                                        >
+                                            Log in
+                                        </button>
+                                    </Link>
+                                    <Link to="/registration">
+                                        <button
+                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                                            aria-label="Sign up"
+                                            title="Sign up"
+                                        >
+                                            Registration
+                                        </button>
+                                    </Link>
+                                </div>
+                            }
 
-                            <div className="button_area  block lg:inline-block">
-                                <Link to="/login">
-                                    <button
-                                        className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign up"
-                                        title="Sign up"
-                                    >
-                                        Log in
-                                    </button>
-                                </Link>
-                                <Link to="/registration">
-                                    <button
-                                        className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign up"
-                                        title="Sign up"
-                                    >
-                                        Registration
-                                    </button>
-                                </Link>
-                            </div>
 
 
                             <Tippy content="Hello">

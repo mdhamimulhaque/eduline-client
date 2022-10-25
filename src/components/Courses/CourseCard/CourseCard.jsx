@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillEye, AiFillStar } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 
 const CourseCard = ({ course }) => {
     const { name, details, image_url, rating, title, total_view } = course;
@@ -16,7 +16,15 @@ const CourseCard = ({ course }) => {
                     <img src={image_url} alt="" className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                     <div className="flex justify-between items-center text-xs">
                         <span className='flex items-center text-base gap-2'><AiFillEye /> {total_view}</span>
-                        <span className='flex items-center text-base gap-2'><AiFillStar /> {rating?.number}</span>
+                        <span className='flex items-center text-base gap-2'>
+                            <div className="rating">
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                            </div>
+                            {rating?.number}</span>
                     </div>
                 </div>
                 <div className="space-y-2">

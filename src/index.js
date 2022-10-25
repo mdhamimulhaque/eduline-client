@@ -4,13 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import 'tippy.js/dist/tippy.css';
+import AuthProvider from './context/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <ToastContainer autoClose={5000} />
+    <AuthProvider>
+      <App />
+      <ToastContainer autoClose={3000} position="top-right" />
+    </AuthProvider>
   </React.StrictMode>
 );
 

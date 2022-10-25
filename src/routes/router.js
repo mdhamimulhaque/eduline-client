@@ -8,6 +8,7 @@ import Blog from "../components/Blog/Blog";
 import Login from "../components/Login/Login";
 import Registration from "../components/Registration/Registration";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
+import CheckOut from "../components/CheckOut/CheckOut";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
                 path: "/registration",
                 element: <Registration />
             },
+            {
+                path: "/checkout/:id",
+                element: <CheckOut />
+            }
         ]
     }
 ])

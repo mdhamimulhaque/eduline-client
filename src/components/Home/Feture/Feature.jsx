@@ -1,4 +1,5 @@
 import React from 'react';
+import { FcReading, FcTreeStructure, FcBusiness, FcPicture, FcChargeBattery, FcBullish } from "react-icons/fc";
 
 const Feature = () => {
     return (
@@ -38,110 +39,38 @@ const Feature = () => {
             </div>
             <div className="grid grid-cols-2 gap-5 row-gap-6 mb-10 sm:grid-cols-3 lg:grid-cols-6">
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcReading />
                     </div>
                     <h6 className="mb-2 font-semibold leading-5">English</h6>
                 </div>
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcTreeStructure />
                     </div>
                     <h6 className="mb-2 font-semibold leading-5">Development</h6>
                 </div>
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcBusiness />
                     </div>
                     <h6 className="mb-2 font-semibold leading-5">Business</h6>
                 </div>
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcPicture />
                     </div>
                     <h6 className="mb-2 font-semibold leading-5">Graphic Design</h6>
                 </div>
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcChargeBattery />
                     </div>
-                    <h6 className="mb-2 font-semibold leading-5">English</h6>
+                    <h6 className="mb-2 font-semibold leading-5">Health</h6>
                 </div>
                 <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
-                        <svg
-                            className="w-12 h-12 text-deep-purple-accent-400 sm:w-16 sm:h-16"
-                            stroke="currentColor"
-                            viewBox="0 0 52 52"
-                        >
-                            <polygon
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                fill="none"
-                                points="29 13 14 29 25 29 23 39 38 23 27 23"
-                            />
-                        </svg>
+                    <div className="flex items-center justify-center text-5xl mx-auto mb-4 rounded-full bg-indigo-50 sm:w-24 sm:h-24">
+                        <FcBullish />
                     </div>
                     <h6 className="mb-2 font-semibold leading-5">Digital Marketing</h6>
                 </div>
