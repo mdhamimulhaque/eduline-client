@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Registration = () => {
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto bg-emerald-100 my-20 shadow-xl">
-            <h1 className="text-2xl font-bold text-center text-emerald-400">Registration</h1>
+            <h1 className="text-3xl font-bold text-center text-emerald-400">Registration</h1>
             <form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="username" className="block dark:text-gray-400">Username</label>

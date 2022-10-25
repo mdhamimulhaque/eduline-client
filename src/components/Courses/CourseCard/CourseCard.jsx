@@ -2,8 +2,7 @@ import React from 'react';
 import { AiFillEye, AiFillStar } from "react-icons/ai";
 
 const CourseCard = ({ course }) => {
-    console.log(course)
-    const { name, details, image_url, language, rating, title, total_view, _id } = course;
+    const { name, details, image_url, rating, title, total_view } = course;
 
     return (
         <>
