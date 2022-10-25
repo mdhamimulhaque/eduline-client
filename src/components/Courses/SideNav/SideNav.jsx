@@ -8,7 +8,7 @@ const SideNav = () => {
         <div>
             {
                 courses.map(course =>
-                    <Link to={course._id} key={course._id}>
+                    <Link to={`/course-details/${course._id}`} key={course._id}>
                         <div className="my-5 flex items-center gap-3 text-lg cursor-pointer hover:text-blue-400">
                             <MdKeyboardArrowRight /> <span>{course?.name}</span>
                         </div>
