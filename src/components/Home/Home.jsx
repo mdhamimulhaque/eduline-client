@@ -18,7 +18,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="feture_area">
+            <section className="feature_area">
                 <Feature />
             </section>
         </>

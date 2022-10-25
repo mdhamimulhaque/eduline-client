@@ -97,42 +97,6 @@ const Header = () => {
 
                 </ul>
             </nav>
-
-
-
-            {/* <div className="user_area hidden lg:block">
-                <div className="user_wrapper flex items-center justify-center gap-4 ">
-                <div className="button_area hidden lg:block">
-                    <Link to="/login">
-                        <button
-                            className="inline-flex mx-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                        >
-                            Log in
-                        </button>
-                    </Link>
-                    <Link to="/registration">
-                        <button
-                            className="inline-flex mx-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                        >
-                            Registration
-                        </button>
-                    </Link>
-                </div>
-
-
-                <Tippy content="Hello">
-                    <div className="avatar">
-                        <div className="w-12 rounded-full border-solid border-2 border-blue-700  ring-offset-base-100  ring-offset-2 ">
-                            <img src="https://placeimg.com/192/192/people" alt='img' />
-                        </div>
-                    </div>
-                </Tippy>
-            </div>
-            </div> */}
         </header>
     );
 };
