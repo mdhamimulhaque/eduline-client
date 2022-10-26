@@ -13,7 +13,7 @@ const CourseCard = ({ course }) => {
             </div>
             <div className="space-y-4">
                 <div className="space-y-2">
-                    <img src={image_url} alt="" className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
+                    <img src={image_url} alt="" className="block  object-center w-full rounded-md h-72 dark:bg-gray-500" />
                     <div className="flex justify-between items-center text-xs">
                         <span className='flex items-center text-base gap-2'><AiFillEye /> {total_view}</span>
                         <span className='flex items-center text-base gap-2'>

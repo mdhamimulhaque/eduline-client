@@ -25,7 +25,6 @@ const Registration = () => {
                 form.reset();
                 setError('')
                 handleUpdateUserProfile(fullName, photoURL)
-                console.log(user)
             })
             .catch(err => {
                 console.error(err)

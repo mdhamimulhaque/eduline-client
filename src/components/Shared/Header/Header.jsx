@@ -41,7 +41,7 @@ const Header = () => {
 
 
     return (
-        <header className='py-2 px-2 lg:px-5 flex justify-between items-center z-10 bg-emerald-300'>
+        <header className='py-2 px-2 lg:px-5 flex justify-between items-center z-10 bg-emerald-700'>
             <Link to="/">
                 <div className="logo flex items-center text-white">
                     <img src={Logo} className="h-8 w-8 " alt="" />
@@ -60,13 +60,13 @@ const Header = () => {
 
             <nav>
                 <ul
-                    className={`lg:flex font-semibold absolute top-12 transition-all duration-500 right-0 lg:static w-full text-center z-10 bg-emerald-300 
+                    className={`lg:flex font-semibold absolute top-12 transition-all duration-500 right-0 lg:static w-full text-center z-10 bg-emerald-700 
                  ${open ? "top-12" : "top-[-500px]"}`}>
                     {
                         navbarData?.map(navItem =>
                             <li
                                 key={navItem?.id}
-                                className='mr-4 text-white hover:text-blue-700 transition-all duration-500 text-lg px-4 py-2 my-3'>
+                                className='mr-4 text-white hover:text-black transition-all duration-500 text-lg px-4 py-2 my-3'>
                                 <Link to={navItem?.path}>{navItem?.name}</Link>
                             </li>
                         )
@@ -113,7 +113,7 @@ const Header = () => {
                             </Tippy>
 
                             <div onClick={handleDarkMood} className="avatar mb-4 mt-2">
-                                <div className="rounded-full flex items-center justify-center text-2xl">
+                                <div className="rounded-full flex items-center justify-center text-white text-2xl">
                                     {isDarkMood ? <MdModeNight /> : <MdLightMode />}
                                 </div>
                             </div>
