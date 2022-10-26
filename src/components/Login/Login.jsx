@@ -1,12 +1,13 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
-    const { googleLogIn, githubLogIn } = useContext(AuthContext);
+    const { googleLogIn, githubLogIn, logIn } = useContext(AuthContext);
+    const [error, setError] = useState('')
 
     // ---> provider
     const googleProvider = new GoogleAuthProvider();
@@ -30,17 +31,39 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 toast.success('login successfully');
+                setError('');
             })
             .catch(err => {
-                toast.error(err.message)
+                toast.error(err.message);
+                setError(err.message);
             })
     }
+
+    // ---> handle email-pass login
+    const handleEmailPassLogin = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        logIn(email, password)
+            .then(res => {
+                const user = res.user;
+                toast.success('login successfully');
+                setError('');
+                form.reset();
+            })
+            .catch(err => {
+                toast.error(err.message);
+                setError(err.message);
+            })
+    }
+
 
 
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto bg-emerald-100 my-20 shadow-xl">
             <h1 className="text-3xl font-bold text-center text-emerald-400">Login</h1>
-            <form noValidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+            <form onSubmit={handleEmailPassLogin} className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block dark:text-gray-400">Email</label>
                     <input type="email" name="email" id="photoURL" placeholder="Your Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
@@ -54,6 +77,7 @@ const Login = () => {
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-700 text-white dark:text-gray-900 dark:bg-violet-400">Log in</button>
             </form>
+            <p className='text-red-500 text-center'><small>{error}</small></p>
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
                 <p className="px-3 text-sm dark:text-gray-400">Login with social accounts</p>
@@ -76,6 +100,8 @@ const Login = () => {
                     </svg>
                 </button>
             </div>
+
+
             <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
                 <Link rel="noopener noreferrer" to="/registration" className="underline dark:text-gray-100 text-blue-400 underline"> Registration</Link>
             </p>

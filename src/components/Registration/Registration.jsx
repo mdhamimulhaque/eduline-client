@@ -58,7 +58,7 @@ const Registration = () => {
 
                 <button className="block w-full p-3 text-center bg-emerald-400 hover:bg-emerald-700 text-white rounded-sm dark:text-gray-900 dark:bg-violet-400">submit</button>
             </form>
-            <p className='text-red-500'><small>{error}</small></p>
+            <p className='text-red-500 text-center'><small>{error}</small></p>
             <p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
                 <Link to="/login"> <button type='submit' rel="noopener noreferrer" className="underline dark:text-gray-100 text-blue-400 underline">Login</button></Link>
             </p>
