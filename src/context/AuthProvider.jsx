@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext();
 
@@ -40,7 +41,18 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
+    // ---> log out
+    const logOut = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success("log out successfully")
+            }).catch((error) => {
+                toast.error(error.message)
+            });
+    }
 
+
+    console.log(user)
 
 
     const authInfo = {
@@ -48,7 +60,8 @@ const AuthProvider = ({ children }) => {
         googleLogIn,
         githubLogIn,
         createUser,
-        logIn
+        logIn,
+        logOut
     }
 
     return (
