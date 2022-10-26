@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
+
 
 export const AuthContext = createContext();
 
@@ -12,56 +11,70 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     // ---> google login
     const googleLogIn = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
     // ---> github login
     const githubLogIn = (provider) => {
+        setLoading(true);
         return signInWithPopup(auth, provider)
     }
 
     // ---> registration || create user
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
     // ---> email-pass login
     const logIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    // ---> manage user
+
+
+    // ---> handleCurrent user
     useEffect(() => {
-        onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            setLoading(false)
         })
+
+        return () => {
+            unSubscribe();
+        }
     }, [])
+
+
+    // ---> update user profile
+    const updateUserProfile = (profile) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, profile)
+    }
 
 
     // ---> log out
     const logOut = () => {
-        signOut(auth)
-            .then(() => {
-                toast.success("log out successfully")
-            }).catch((error) => {
-                toast.error(error.message)
-            });
+        setLoading(true);
+        return signOut(auth)
     }
-
-
-    console.log(user)
 
 
     const authInfo = {
         user,
+        loading,
         googleLogIn,
         githubLogIn,
         createUser,
         logIn,
-        logOut
+        logOut,
+        updateUserProfile
     }
 
     return (

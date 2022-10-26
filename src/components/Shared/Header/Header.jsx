@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import Tippy from '@tippyjs/react';
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider';
+import { toast } from 'react-toastify';
+import userPlaceholderImg from "../../../img/user.png";
 
 const Header = () => {
 
@@ -26,9 +28,17 @@ const Header = () => {
     }, [])
 
     const [open, setOpen] = useState(false);
+
     const handleLogOut = () => {
         logOut()
+            .then(() => {
+                toast.success("logout successfully");
+            }).catch((error) => {
+                console.error(error)
+                toast.error(error.message)
+            });
     }
+
 
     return (
         <header className='py-2 px-2 lg:px-5 flex justify-between items-center z-10 bg-emerald-300'>
@@ -64,7 +74,7 @@ const Header = () => {
 
                     <div className="user_area ">
                         <div className="user_wrapper lg:flex lg:items-center lg:justify-center lg:gap-4 ">
-                            {user ?
+                            {user?.uid ?
                                 <button onClick={handleLogOut}
                                     className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-red-400 hover:bg-red-700 focus:shadow-outline focus:outline-none"
                                     aria-label="Sign up"
@@ -94,10 +104,10 @@ const Header = () => {
 
 
 
-                            <Tippy content={user?.displayName ? user?.displayName : "No Name Set"}>
+                            <Tippy content={user?.displayName ? user?.displayName : "No Name"}>
                                 <div className="avatar mb-4 mt-2">
                                     <div className="w-12 rounded-full border-solid border-2 border-blue-700  ring-offset-base-100  ring-offset-2 ">
-                                        <img src="https://placeimg.com/192/192/people" alt='img' />
+                                        <img src={user?.photoURL ? user?.photoURL : userPlaceholderImg} alt='img' />
                                     </div>
                                 </div>
                             </Tippy>

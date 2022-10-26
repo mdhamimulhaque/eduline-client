@@ -6,9 +6,9 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Registration = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error, setError] = useState('')
-
+    // ---> handle registration
     const handleRegistrationForm = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -17,18 +17,36 @@ const Registration = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        // --->handle create user
         createUser(email, password)
             .then(res => {
                 const user = res.user;
-                toast.success('login successfully');
+                toast.success('Registration successfully');
                 form.reset();
                 setError('')
+                handleUpdateUserProfile(fullName, photoURL)
                 console.log(user)
             })
             .catch(err => {
+                console.error(err)
                 toast.error(err.message);
-                setError(err.message)
+                setError(err.message);
             })
+
+    }
+
+    // ---> handle update user profile
+    const handleUpdateUserProfile = (name, url) => {
+        const profile = {
+            displayName: name,
+            photoURL: url
+        }
+        updateUserProfile(profile)
+            .then(() => {
+                console.log('profile updated')
+            }).catch((error) => {
+                console.error(error)
+            });
     }
 
 
@@ -56,11 +74,11 @@ const Registration = () => {
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
                 </div>
 
-                <button className="block w-full p-3 text-center bg-emerald-400 hover:bg-emerald-700 text-white rounded-sm dark:text-gray-900 dark:bg-violet-400">submit</button>
+                <button type='submit' className="block w-full p-3 text-center bg-emerald-400 hover:bg-emerald-700 text-white rounded-sm dark:text-gray-900 dark:bg-violet-400">submit</button>
             </form>
             <p className='text-red-500 text-center'><small>{error}</small></p>
             <p className="text-xs text-center sm:px-6 dark:text-gray-400">Already have an account?
-                <Link to="/login"> <button type='submit' rel="noopener noreferrer" className="underline dark:text-gray-100 text-blue-400 underline">Login</button></Link>
+                <Link to="/login" rel="noopener noreferrer" className="underline dark:text-gray-100 text-blue-400 underline">Login </Link>
             </p>
         </div>
     );

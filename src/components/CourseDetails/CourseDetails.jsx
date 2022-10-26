@@ -55,7 +55,7 @@ const CourseDetails = () => {
                                 src={image_url} alt=""
                             />
                             <Link
-                                to="/checkout/"
+                                to="/courses"
                                 aria-label="Play Video"
                                 className="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25"
                             >

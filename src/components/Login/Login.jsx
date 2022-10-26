@@ -1,13 +1,17 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
     const { googleLogIn, githubLogIn, logIn } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     // ---> provider
     const googleProvider = new GoogleAuthProvider();
@@ -21,6 +25,7 @@ const Login = () => {
                 toast.success('login successfully');
             })
             .catch(err => {
+                console.error(err)
                 toast.error(err.message)
             })
     }
@@ -34,6 +39,7 @@ const Login = () => {
                 setError('');
             })
             .catch(err => {
+                console.error(err)
                 toast.error(err.message);
                 setError(err.message);
             })
@@ -45,14 +51,17 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
         logIn(email, password)
             .then(res => {
                 const user = res.user;
                 toast.success('login successfully');
                 setError('');
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(err => {
+                console.error(err)
                 toast.error(err.message);
                 setError(err.message);
             })
@@ -75,7 +84,7 @@ const Login = () => {
                         <Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
                     </div>
                 </div>
-                <button className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-700 text-white dark:text-gray-900 dark:bg-violet-400">Log in</button>
+                <button type="submit" className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-700 text-white dark:text-gray-900 dark:bg-violet-400">Log in</button>
             </form>
             <p className='text-red-500 text-center'><small>{error}</small></p>
             <div className="flex items-center pt-4 space-x-1">
@@ -103,7 +112,11 @@ const Login = () => {
 
 
             <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
-                <Link rel="noopener noreferrer" to="/registration" className="underline dark:text-gray-100 text-blue-400 underline"> Registration</Link>
+                <Link rel="noopener noreferrer"
+                    to="/registration"
+                    className="underline dark:text-gray-100 text-blue-400 underline">
+                    Registration
+                </Link>
             </p>
         </div>
     );
