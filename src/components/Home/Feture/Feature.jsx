@@ -78,7 +78,7 @@ const Feature = () => {
             <div className="text-center">
                 <a
                     href="/"
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-emerald-400 hover:bg-emerald-700 focus:shadow-outline focus:outline-none"
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-emerald-400 hover:bg-emerald-500 focus:shadow-outline focus:outline-none"
                 >
                     Learn more
                     <span className="ml-1 -mr-2">

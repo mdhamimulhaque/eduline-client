@@ -26,6 +26,12 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
+    // ---> facebook login
+    const facebookLogIn = (provider) => {
+        setLoading(true);
+        return signInWithPopup(auth, provider)
+    }
+
     // ---> registration || create user
     const createUser = (email, password) => {
         setLoading(true);
@@ -74,7 +80,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         logIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        facebookLogIn
     }
 
     return (

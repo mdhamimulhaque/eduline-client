@@ -60,7 +60,7 @@ const CheckOut = () => {
                         </fieldset>
 
                         <div className="btn_area flex justify-end">
-                            <button className='py-3 px-10 mr-6 bg-emerald-400 hover:bg-emerald-700 text-white rounded-sm dark:text-gray-900 dark:bg-violet-400'>Place Order</button>
+                            <button className='py-3 px-10 mr-6 bg-emerald-400 hover:bg-emerald-500 text-white rounded-sm dark:text-gray-900 dark:bg-violet-400'>Place Order</button>
                         </div>
                     </form>
                 </div>

@@ -13,7 +13,7 @@ const Home = () => {
                         <h1 className="mb-5 text-5xl font-bold">Learn Something New Today</h1>
                         <p className="mb-5">Access To 5500+ Courses from 480 Instructors & Institutions</p>
                         <p className="mb-5">Take your learning organisation to the next level.</p>
-                        <Link to="/courses"> <button className="btn bg-emerald-400 hover:bg-emerald-700 border-0">Get Started</button></Link>
+                        <Link to="/courses"> <button className="btn bg-emerald-400 hover:bg-emerald-500 border-0">Get Started</button></Link>
                     </div>
                 </div>
             </div>

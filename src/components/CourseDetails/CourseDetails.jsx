@@ -13,7 +13,7 @@ const CourseDetails = () => {
                     <div className="container mx-auto">
                         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
                             <h2 className="text-6xl font-semibold">{name}</h2>
-                            <button className="block p-3 text-center flex  items-center justify-center gap-2 rounded-sm bg-emerald-400 hover:bg-emerald-700 text-white dark:text-gray-900 dark:bg-violet-400"><FaCloudDownloadAlt className='text-lg' /> pdf download</button>
+                            <button className="block p-3 text-center flex  items-center justify-center gap-2 rounded-sm bg-emerald-400 hover:bg-emerald-500 text-white dark:text-gray-900 dark:bg-violet-400"><FaCloudDownloadAlt className='text-lg' /> pdf download</button>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const CourseDetails = () => {
 
                             <div className="mt-6">
                                 <Link to={`/checkout/${_id}`}>
-                                    <button className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-700 text-white dark:text-gray-900 dark:bg-violet-400">Get Premium Access</button>
+                                    <button className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-500 text-white dark:text-gray-900 dark:bg-violet-400">Get Premium Access</button>
                                 </Link>
                             </div>
                         </div>

@@ -83,7 +83,7 @@ const Header = () => {
                                 <div className="button_area  block lg:inline-block">
                                     <Link to="/login">
                                         <button
-                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md text-white bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-border-700 transition duration-200 rounded shadow-md bg-emerald-400 hover:bg-emerald-500 text-white focus:shadow-outline focus:outline-none"
                                             aria-label="Sign up"
                                             title="Sign up"
                                         >
@@ -92,7 +92,7 @@ const Header = () => {
                                     </Link>
                                     <Link to="/registration">
                                         <button
-                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                                            className="inline-flex m-2 items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 rounded shadow-md bg-emerald-400 hover:bg-emerald-500 text-white focus:shadow-outline focus:outline-none"
                                             aria-label="Sign up"
                                             title="Sign up"
                                         >
