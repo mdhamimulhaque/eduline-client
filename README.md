@@ -1,5 +1,5 @@
 # Project Name : Eduline
-### `Live Link` : This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `Live Link` : [https://eduline-c93db.web.app/](https://eduline-c93db.web.app/)
 
 <p><strong>Project type</strong> : Online Education</p>
 
