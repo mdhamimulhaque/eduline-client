@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Registration = () => {
-    const { createUser, updateUserProfile } = useContext(AuthContext);
-    const [error, setError] = useState('')
+    const { createUser, updateUserProfile, setLoading, emailVerify } = useContext(AuthContext);
+    const [error, setError] = useState('');
     // ---> handle registration
     const handleRegistrationForm = (e) => {
         e.preventDefault()
@@ -20,16 +20,19 @@ const Registration = () => {
         // --->handle create user
         createUser(email, password)
             .then(res => {
-                const user = res.user;
                 toast.success('Registration successfully');
                 form.reset();
                 setError('')
-                handleUpdateUserProfile(fullName, photoURL)
+                handleUpdateUserProfile(fullName, photoURL);
+                handleEmailVerify()
             })
             .catch(err => {
                 console.error(err)
                 toast.error(err.message);
                 setError(err.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
 
     }
@@ -48,7 +51,18 @@ const Registration = () => {
             });
     }
 
+    // ---> handle email verify
+    const handleEmailVerify = () => {
+        emailVerify()
+            .then(() => {
+                toast.success('Please check your email and verified it');
+            }).catch((error) => {
+                setError(error.message);
+                toast.error(error.message);
+                console.log(error)
+            })
 
+    }
     return (
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100 mx-auto bg-emerald-100 my-20 shadow-xl">
             <h1 className="text-3xl font-bold text-center text-emerald-400">Registration</h1>

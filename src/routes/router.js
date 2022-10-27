@@ -23,22 +23,22 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/courses",
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://eduline-server.vercel.app/courses'),
                 element: <Courses />
             },
             {
                 path: "/course-details/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`),
+                loader: ({ params }) => fetch(`https://eduline-server.vercel.app/course-details/${params.id}`),
                 element: <CourseDetails />
             },
             {
                 path: "/faq",
-                loader: () => fetch('http://localhost:5000/faq'),
+                loader: () => fetch('https://eduline-server.vercel.app/faq'),
                 element: <Faq />
             },
             {
                 path: "/blog",
-                loader: () => fetch('http://localhost:5000/blog'),
+                loader: () => fetch('https://eduline-server.vercel.app/blog'),
                 element: <Blog />
             },
             {
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/checkout/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/course-details/${params.id}`),
+                loader: ({ params }) => fetch(`https://eduline-server.vercel.app/course-details/${params.id}`),
                 element:
                     <PrivateRoute>
                         <CheckOut />

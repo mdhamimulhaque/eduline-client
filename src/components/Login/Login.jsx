@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { BsGoogle, BsGithub, BsFacebook } from "react-icons/bs"
 
 const Login = () => {
-    const { googleLogIn, githubLogIn, logIn, facebookLogIn } = useContext(AuthContext);
+    const { googleLogIn, githubLogIn, logIn, facebookLogIn, setLoading } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
@@ -23,7 +23,6 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         googleLogIn(googleProvider)
             .then(res => {
-                const user = res.user;
                 toast.success('login successfully');
                 navigate(from, { replace: true });
                 setError('');
@@ -39,7 +38,6 @@ const Login = () => {
     const handleGithubLogIn = () => {
         githubLogIn(githubProvider)
             .then(res => {
-                const user = res.user;
                 toast.success('login successfully');
                 navigate(from, { replace: true });
                 setError('');
@@ -55,7 +53,6 @@ const Login = () => {
     const handleFbLogIn = () => {
         facebookLogIn(fbProvider)
             .then(res => {
-                const user = res.user;
                 toast.success('login successfully');
                 navigate(from, { replace: true });
                 setError('');
@@ -77,15 +74,23 @@ const Login = () => {
         logIn(email, password)
             .then(res => {
                 const user = res.user;
-                toast.success('login successfully');
                 setError('');
                 form.reset();
-                navigate(from, { replace: true });
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                    toast.success('login successfully');
+                } else {
+                    toast.error("Please verify your email address")
+                }
+
             })
             .catch(err => {
                 console.error(err)
                 toast.error(err.message);
                 setError(err.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 

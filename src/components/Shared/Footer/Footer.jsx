@@ -7,7 +7,7 @@ const Footer = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/navbar-data')
+        fetch('https://eduline-server.vercel.app/navbar-data')
             .then(res => res.json())
             .then(data => setNavbarData(data))
     }, [])
