@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/faq",
+                loader: () => fetch('http://localhost:5000/faq'),
                 element: <Faq />
             },
             {

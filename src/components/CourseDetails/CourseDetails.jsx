@@ -8,7 +8,7 @@ import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
     const courseDetailsData = useLoaderData()
-    const { name, details, image_url, _id, title, category, overview } = courseDetailsData;
+    const { name, details, image_url, _id, price, title, category, overview } = courseDetailsData;
 
     const pdfRef = useRef()
 
@@ -18,7 +18,7 @@ const CourseDetails = () => {
                 <div className="p-6 py-12 dark:bg-violet-400 dark:text-gray-900">
                     <div className="container mx-auto">
                         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-                            <h2 className="text-6xl font-semibold">{name}</h2>
+                            <h2 className="text-4xl lg:text-6xl font-semibold">{name}</h2>
                             <Pdf targetRef={pdfRef} filename="code-example.pdf">
                                 {({ toPdf }) => <button onClick={toPdf} className="p-3 text-center flex  items-center justify-center gap-2 rounded-sm bg-emerald-400 hover:bg-emerald-500 text-white dark:text-gray-900 dark:bg-violet-400"><FaCloudDownloadAlt className='text-lg' /> pdf download</button>}
                             </Pdf>
@@ -51,9 +51,11 @@ const CourseDetails = () => {
                                     {overview.map((overVPoint, index) => <CourseOverview key={index} overVPoint={overVPoint} />)}
                                 </div>
 
+                                <div className="price text-4xl font-bold text-emerald-700">Price : ${price}</div>
+
                             </section>
 
-                            <div className="mt-6">
+                            <div className="mt-5">
                                 <Link to={`/checkout/${_id}`}>
                                     <button className="block w-full p-3 text-center rounded-sm bg-emerald-400 hover:bg-emerald-500 text-white dark:text-gray-900 dark:bg-violet-400">Get Premium Access</button>
                                 </Link>

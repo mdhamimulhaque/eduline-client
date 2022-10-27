@@ -10,7 +10,7 @@ const Blog = () => {
                     <div className="p-6 py-12 bg-emerald-100 dark:bg-violet-400 dark:text-gray-900">
                         <div className="container mx-auto">
                             <div className="flex flex-col lg:flex-row items-center justify-between">
-                                <h2 className="text-center text-6xl tracking-tighter font-bold">Blog </h2>
+                                <h2 className="text-center text-4xl lg:text-6xl tracking-tighter font-bold">Blog </h2>
                             </div>
                         </div>
                     </div>

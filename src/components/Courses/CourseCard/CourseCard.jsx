@@ -2,7 +2,7 @@ import React from 'react';
 import { AiFillEye } from "react-icons/ai";
 
 const CourseCard = ({ course }) => {
-    const { name, details, image_url, rating, title, total_view } = course;
+    const { name, details, image_url, rating, title, price, total_view } = course;
 
     return (
         <>
@@ -26,10 +26,11 @@ const CourseCard = ({ course }) => {
                             </div>
                             {rating?.number}</span>
                     </div>
+                    <div className="price pt-2 text-2xl font-bold text-emerald-700">Price : ${price}</div>
                 </div>
                 <div className="space-y-2">
                     <h3 className="text-xl font-semibold dark:text-violet-400">{title}</h3>
-                    <p className="leading-snug dark:text-gray-400">{details.slice(0, 150)}...</p>
+                    <p className="leading-snug dark:text-gray-400">{details.slice(0, 150)}</p>
                 </div>
             </div>
         </>

@@ -25,10 +25,13 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 toast.success('login successfully');
+                navigate(from, { replace: true });
+                setError('');
             })
             .catch(err => {
                 console.error(err)
-                toast.error(err.message)
+                toast.error(err.message);
+                setError(err.message);
             })
     }
 
@@ -38,6 +41,7 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 toast.success('login successfully');
+                navigate(from, { replace: true });
                 setError('');
             })
             .catch(err => {
@@ -53,10 +57,13 @@ const Login = () => {
             .then(res => {
                 const user = res.user;
                 toast.success('login successfully');
+                navigate(from, { replace: true });
+                setError('');
             })
             .catch(err => {
                 console.error(err)
-                toast.error(err.message)
+                toast.error(err.message);
+                setError(err.message);
             })
     }
 
