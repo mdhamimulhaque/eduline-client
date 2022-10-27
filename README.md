@@ -17,5 +17,16 @@
 </ul>
 
 
+<h4>Learning from this project : </h4>
+<ol>
+<li>Firebase Authentication (Google,GitHub,Facebook,Email-password,email validation)</li>
+<li>React Router Dom, How to handle private route </li>
+<li>Dynamic routes</li>
+<li>Create backend data & how to connect with frontend</li>
+<li>How To notify error || form validation</li>
+<li>How to generate pdf with react js</li>
+</ol>
+
+
 
 
