@@ -90,7 +90,8 @@ const AuthProvider = ({ children }) => {
         logOut,
         updateUserProfile,
         facebookLogIn,
-        emailVerify
+        emailVerify,
+        setUser
     }
 
     return (

@@ -7,7 +7,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { BsGoogle, BsGithub, BsFacebook } from "react-icons/bs"
 
 const Login = () => {
-    const { googleLogIn, githubLogIn, logIn, facebookLogIn, setLoading } = useContext(AuthContext);
+    const { googleLogIn, githubLogIn, logIn, facebookLogIn, setLoading, setUser } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
@@ -32,20 +32,29 @@ const Login = () => {
                 toast.error(err.message);
                 setError(err.message);
             })
+            .finally(() => {
+                setLoading(false)
+            })
     }
 
     // ---> handle github login
     const handleGithubLogIn = () => {
         githubLogIn(githubProvider)
             .then(res => {
+                const user = res.user;
+                setUser(user)
                 toast.success('login successfully');
                 navigate(from, { replace: true });
                 setError('');
+                console.log(res.user)
             })
             .catch(err => {
                 console.error(err)
                 toast.error(err.message);
                 setError(err.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 
@@ -53,14 +62,20 @@ const Login = () => {
     const handleFbLogIn = () => {
         facebookLogIn(fbProvider)
             .then(res => {
+                const user = res.user;
                 toast.success('login successfully');
+                setUser(user)
                 navigate(from, { replace: true });
                 setError('');
+                console.log(res.user)
             })
             .catch(err => {
                 console.error(err)
                 toast.error(err.message);
                 setError(err.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 
